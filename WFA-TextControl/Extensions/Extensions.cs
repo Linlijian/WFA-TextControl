@@ -17,7 +17,7 @@ namespace WFA_TextControl.Extensions
         {
             return string.IsNullOrEmpty(Convert.ToString(data));
         }
-        public static bool SetCheckBox(this object data, object option = null)
+        public static bool SetDisableCheckBox(this object data, object option = null)
         {
             if (!IsNullOrEmpty(data))
             {
@@ -46,6 +46,56 @@ namespace WFA_TextControl.Extensions
             }            
 
             return string.IsNullOrEmpty(Convert.ToString(data));
+        }
+        public static void ClearCheckBoxAllGruopBox(this object data, object control)
+        {
+            if (!IsNullOrEmpty(data))
+            {
+                var _checkbox = (CheckBox)data;
+                if (!IsNullOrEmpty(control))
+                {
+                    /*clear all checkbox control not mine*/
+                    var _gbox = (GroupBox)control;
+
+                    foreach (Control c in _gbox.Controls)
+                    {
+                        if (c is CheckBox)
+                        {
+                            CheckBox _ckb = (CheckBox)c;
+                            if (_ckb.Name != _checkbox.Name)
+                            {
+                                if (_ckb.Checked == true)
+                                {
+                                    _ckb.Checked = false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        public static void ClearCheckBox(this object data, object checkbox)
+        {
+            if (!IsNullOrEmpty(data))
+            {
+                var _checkbox = (CheckBox)data;
+                if (!IsNullOrEmpty(checkbox))
+                {
+                    /*clear checkbox control not mine*/
+                    var _ckb = (CheckBox)checkbox;
+
+                    if (_checkbox.Checked)
+                        _ckb.Checked = false;
+                }
+            }
+        }
+        public static void SetDefualtCheck(this object data)
+        {
+            if (!IsNullOrEmpty(data))
+            {
+                var _checkbox = (CheckBox)data;
+                _checkbox.Checked = true;
+            }
         }
     }
 }

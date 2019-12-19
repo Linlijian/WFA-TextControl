@@ -33,7 +33,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabSplitText = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gboxParameter = new System.Windows.Forms.GroupBox();
             this.lblExParameter = new System.Windows.Forms.Label();
             this.btnCopyParameter = new System.Windows.Forms.Button();
             this.btnGenParameter = new System.Windows.Forms.Button();
@@ -41,7 +41,7 @@
             this.ckbNomalField = new System.Windows.Forms.CheckBox();
             this.txtParameter_To = new System.Windows.Forms.TextBox();
             this.txtParameter_From = new System.Windows.Forms.TextBox();
-            this.Query2SingleText = new System.Windows.Forms.GroupBox();
+            this.gboxSingleText = new System.Windows.Forms.GroupBox();
             this.lblExSingleText = new System.Windows.Forms.Label();
             this.btnCopySingleText = new System.Windows.Forms.Button();
             this.btnGenSingleText = new System.Windows.Forms.Button();
@@ -64,8 +64,8 @@
             this.tabControl2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSplitText.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.Query2SingleText.SuspendLayout();
+            this.gboxParameter.SuspendLayout();
+            this.gboxSingleText.SuspendLayout();
             this.tabDECLARE.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -112,8 +112,8 @@
             // 
             // tabSplitText
             // 
-            this.tabSplitText.Controls.Add(this.groupBox1);
-            this.tabSplitText.Controls.Add(this.Query2SingleText);
+            this.tabSplitText.Controls.Add(this.gboxParameter);
+            this.tabSplitText.Controls.Add(this.gboxSingleText);
             this.tabSplitText.Controls.Add(this.btnClearTab1);
             this.tabSplitText.Location = new System.Drawing.Point(4, 25);
             this.tabSplitText.Name = "tabSplitText";
@@ -123,21 +123,21 @@
             this.tabSplitText.Text = "SplitText";
             this.tabSplitText.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // gboxParameter
             // 
-            this.groupBox1.Controls.Add(this.lblExParameter);
-            this.groupBox1.Controls.Add(this.btnCopyParameter);
-            this.groupBox1.Controls.Add(this.btnGenParameter);
-            this.groupBox1.Controls.Add(this.ckbDBField);
-            this.groupBox1.Controls.Add(this.ckbNomalField);
-            this.groupBox1.Controls.Add(this.txtParameter_To);
-            this.groupBox1.Controls.Add(this.txtParameter_From);
-            this.groupBox1.Location = new System.Drawing.Point(462, 7);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(457, 290);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Parameter";
+            this.gboxParameter.Controls.Add(this.lblExParameter);
+            this.gboxParameter.Controls.Add(this.btnCopyParameter);
+            this.gboxParameter.Controls.Add(this.btnGenParameter);
+            this.gboxParameter.Controls.Add(this.ckbDBField);
+            this.gboxParameter.Controls.Add(this.ckbNomalField);
+            this.gboxParameter.Controls.Add(this.txtParameter_To);
+            this.gboxParameter.Controls.Add(this.txtParameter_From);
+            this.gboxParameter.Location = new System.Drawing.Point(462, 7);
+            this.gboxParameter.Name = "gboxParameter";
+            this.gboxParameter.Size = new System.Drawing.Size(457, 290);
+            this.gboxParameter.TabIndex = 2;
+            this.gboxParameter.TabStop = false;
+            this.gboxParameter.Text = "Parameter";
             // 
             // lblExParameter
             // 
@@ -147,6 +147,7 @@
             this.lblExParameter.Size = new System.Drawing.Size(61, 17);
             this.lblExParameter.TabIndex = 6;
             this.lblExParameter.Text = "Example";
+            this.lblExParameter.Click += new System.EventHandler(this.lblExParameter_Click);
             // 
             // btnCopyParameter
             // 
@@ -156,6 +157,7 @@
             this.btnCopyParameter.TabIndex = 6;
             this.btnCopyParameter.Text = "Copy";
             this.btnCopyParameter.UseVisualStyleBackColor = true;
+            this.btnCopyParameter.Click += new System.EventHandler(this.btnCopyParameter_Click);
             // 
             // btnGenParameter
             // 
@@ -165,6 +167,7 @@
             this.btnGenParameter.TabIndex = 6;
             this.btnGenParameter.Text = "Generate";
             this.btnGenParameter.UseVisualStyleBackColor = true;
+            this.btnGenParameter.Click += new System.EventHandler(this.btnGenParameter_Click);
             // 
             // ckbDBField
             // 
@@ -175,6 +178,7 @@
             this.ckbDBField.TabIndex = 5;
             this.ckbDBField.Text = "DB field";
             this.ckbDBField.UseVisualStyleBackColor = true;
+            this.ckbDBField.CheckedChanged += new System.EventHandler(this.ckbDBField_CheckedChanged);
             // 
             // ckbNomalField
             // 
@@ -185,6 +189,7 @@
             this.ckbNomalField.TabIndex = 4;
             this.ckbNomalField.Text = "Nomal field";
             this.ckbNomalField.UseVisualStyleBackColor = true;
+            this.ckbNomalField.CheckedChanged += new System.EventHandler(this.ckbNomalField_CheckedChanged);
             // 
             // txtParameter_To
             // 
@@ -204,22 +209,22 @@
             this.txtParameter_From.Size = new System.Drawing.Size(215, 167);
             this.txtParameter_From.TabIndex = 3;
             // 
-            // Query2SingleText
+            // gboxSingleText
             // 
-            this.Query2SingleText.Controls.Add(this.lblExSingleText);
-            this.Query2SingleText.Controls.Add(this.btnCopySingleText);
-            this.Query2SingleText.Controls.Add(this.btnGenSingleText);
-            this.Query2SingleText.Controls.Add(this.ckbAtSign);
-            this.Query2SingleText.Controls.Add(this.ckbComma);
-            this.Query2SingleText.Controls.Add(this.ckbDelLastCom);
-            this.Query2SingleText.Controls.Add(this.txtSingleText_From);
-            this.Query2SingleText.Controls.Add(this.txtSingleText_To);
-            this.Query2SingleText.Location = new System.Drawing.Point(7, 7);
-            this.Query2SingleText.Name = "Query2SingleText";
-            this.Query2SingleText.Size = new System.Drawing.Size(449, 290);
-            this.Query2SingleText.TabIndex = 0;
-            this.Query2SingleText.TabStop = false;
-            this.Query2SingleText.Text = "SingleText";
+            this.gboxSingleText.Controls.Add(this.lblExSingleText);
+            this.gboxSingleText.Controls.Add(this.btnCopySingleText);
+            this.gboxSingleText.Controls.Add(this.btnGenSingleText);
+            this.gboxSingleText.Controls.Add(this.ckbAtSign);
+            this.gboxSingleText.Controls.Add(this.ckbComma);
+            this.gboxSingleText.Controls.Add(this.ckbDelLastCom);
+            this.gboxSingleText.Controls.Add(this.txtSingleText_From);
+            this.gboxSingleText.Controls.Add(this.txtSingleText_To);
+            this.gboxSingleText.Location = new System.Drawing.Point(7, 7);
+            this.gboxSingleText.Name = "gboxSingleText";
+            this.gboxSingleText.Size = new System.Drawing.Size(449, 290);
+            this.gboxSingleText.TabIndex = 0;
+            this.gboxSingleText.TabStop = false;
+            this.gboxSingleText.Text = "SingleText";
             // 
             // lblExSingleText
             // 
@@ -425,10 +430,10 @@
             this.tabControl2.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabSplitText.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.Query2SingleText.ResumeLayout(false);
-            this.Query2SingleText.PerformLayout();
+            this.gboxParameter.ResumeLayout(false);
+            this.gboxParameter.PerformLayout();
+            this.gboxSingleText.ResumeLayout(false);
+            this.gboxSingleText.PerformLayout();
             this.tabDECLARE.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -443,8 +448,8 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabSplitText;
         private System.Windows.Forms.TabPage tabDECLARE;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox Query2SingleText;
+        private System.Windows.Forms.GroupBox gboxParameter;
+        private System.Windows.Forms.GroupBox gboxSingleText;
         private System.Windows.Forms.TextBox txtParameter_To;
         private System.Windows.Forms.TextBox txtParameter_From;
         private System.Windows.Forms.TextBox txtSingleText_From;

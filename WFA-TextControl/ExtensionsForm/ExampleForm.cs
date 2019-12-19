@@ -36,11 +36,12 @@ namespace WFA_TextControl.ExtensionsForm
             }
             else if (ex.ExType == ExampleType.Parameter)
             {
-                _body = "SELECT COUNT(*)\n";
-                _body += "FROM table\n";
-                _body += "WHERE Field_1 = @Field_1\n";
-                _body += "AND Field_2 = @Field_2\n";
-                _body += "AND Field_3 = @Field_3";
+                _body = "1.NomalField\n";
+                _body += "Field_1\n";
+                _body += "Field_2\n";
+                _body += "2.DBField\n";
+                _body += "[Field_1],\n";
+                _body += "[Field_2]\n";
                 lblExbody.Text = _body;
             }
 
