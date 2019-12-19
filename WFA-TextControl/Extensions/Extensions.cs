@@ -24,18 +24,25 @@ namespace WFA_TextControl.Extensions
                 var _checkbox = (CheckBox)data;
                 if (!IsNullOrEmpty(option))
                 {
+                    /*set disable checkbok follow option*/
                     var _opckb = (CheckBox)option;
 
-                    if (_opckb.Enabled)
-                        return !_checkbox.Enabled;
+                    if (_checkbox.Enabled)
+                    {
+                        _checkbox.Checked = false;
+                        return _checkbox.Enabled = false;
+                    }
                     else
-                        return _checkbox.Enabled;
+                    {
+                        return _checkbox.Enabled = true;
+                    }
                 }
 
+                /*set defualt checkbok if option is null*/
                 if (_checkbox.Enabled)
-                    return !_checkbox.Enabled;
+                    return _checkbox.Enabled = false;
                 else
-                    return _checkbox.Enabled;
+                    return _checkbox.Enabled = true;
             }            
 
             return string.IsNullOrEmpty(Convert.ToString(data));
