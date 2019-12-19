@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtensionsForm\ExampleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtensionsForm\ExampleForm.Designer.cs">
+      <DependentUpon>ExampleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\ExampleModel.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Extensions\SplitModel.cs" />
     <Compile Include="TextControForml.cs">
@@ -56,6 +63,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ExtensionsForm\ExampleForm.resx">
+      <DependentUpon>ExampleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TextControForml.resx">
       <DependentUpon>TextControForml.cs</DependentUpon>
     </EmbeddedResource>

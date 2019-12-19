@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WFA_TextControl.Extensions
 {
-    class SplitModel
+    public class SplitModel
     {
         private bool isFirst = true;
         private int outputCase = 0;

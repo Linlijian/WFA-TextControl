@@ -52,15 +52,15 @@
             this.txtSingleText_To = new System.Windows.Forms.TextBox();
             this.btnClearTab1 = new System.Windows.Forms.Button();
             this.tabDECLARE = new System.Windows.Forms.TabPage();
+            this.btnClearTab2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblExConcat = new System.Windows.Forms.Label();
+            this.btnCopyVal = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnGenerateConcut = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnCopyCur = new System.Windows.Forms.Button();
-            this.btnGenerateConcut = new System.Windows.Forms.Button();
-            this.btnClearTab2 = new System.Windows.Forms.Button();
-            this.btnCopyVal = new System.Windows.Forms.Button();
-            this.lblExConcat = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabControl2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSplitText.SuspendLayout();
@@ -229,6 +229,7 @@
             this.lblExSingleText.Size = new System.Drawing.Size(61, 17);
             this.lblExSingleText.TabIndex = 7;
             this.lblExSingleText.Text = "Example";
+            this.lblExSingleText.Click += new System.EventHandler(this.lblExSingleText_Click);
             // 
             // btnCopySingleText
             // 
@@ -238,6 +239,7 @@
             this.btnCopySingleText.TabIndex = 3;
             this.btnCopySingleText.Text = "Copy";
             this.btnCopySingleText.UseVisualStyleBackColor = true;
+            this.btnCopySingleText.Click += new System.EventHandler(this.btnCopySingleText_Click);
             // 
             // btnGenSingleText
             // 
@@ -319,6 +321,15 @@
             this.tabDECLARE.Text = "DECLARE";
             this.tabDECLARE.UseVisualStyleBackColor = true;
             // 
+            // btnClearTab2
+            // 
+            this.btnClearTab2.Location = new System.Drawing.Point(825, 467);
+            this.btnClearTab2.Name = "btnClearTab2";
+            this.btnClearTab2.Size = new System.Drawing.Size(88, 35);
+            this.btnClearTab2.TabIndex = 6;
+            this.btnClearTab2.Text = "Clear";
+            this.btnClearTab2.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblExConcat);
@@ -335,6 +346,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Concut Curser and Values";
             // 
+            // lblExConcat
+            // 
+            this.lblExConcat.AutoSize = true;
+            this.lblExConcat.Location = new System.Drawing.Point(845, 207);
+            this.lblExConcat.Name = "lblExConcat";
+            this.lblExConcat.Size = new System.Drawing.Size(61, 17);
+            this.lblExConcat.TabIndex = 7;
+            this.lblExConcat.Text = "Example";
+            // 
+            // btnCopyVal
+            // 
+            this.btnCopyVal.Location = new System.Drawing.Point(818, 232);
+            this.btnCopyVal.Name = "btnCopyVal";
+            this.btnCopyVal.Size = new System.Drawing.Size(88, 35);
+            this.btnCopyVal.TabIndex = 7;
+            this.btnCopyVal.Text = "Copy Val";
+            this.btnCopyVal.UseVisualStyleBackColor = true;
+            // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
@@ -344,14 +373,14 @@
             this.textBox1.Size = new System.Drawing.Size(290, 183);
             this.textBox1.TabIndex = 1;
             // 
-            // textBox2
+            // btnGenerateConcut
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 21);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(299, 183);
-            this.textBox2.TabIndex = 2;
+            this.btnGenerateConcut.Location = new System.Drawing.Point(630, 232);
+            this.btnGenerateConcut.Name = "btnGenerateConcut";
+            this.btnGenerateConcut.Size = new System.Drawing.Size(88, 35);
+            this.btnGenerateConcut.TabIndex = 5;
+            this.btnGenerateConcut.Text = "Generate";
+            this.btnGenerateConcut.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
@@ -371,41 +400,14 @@
             this.btnCopyCur.Text = "Copy Cur";
             this.btnCopyCur.UseVisualStyleBackColor = true;
             // 
-            // btnGenerateConcut
+            // textBox2
             // 
-            this.btnGenerateConcut.Location = new System.Drawing.Point(630, 232);
-            this.btnGenerateConcut.Name = "btnGenerateConcut";
-            this.btnGenerateConcut.Size = new System.Drawing.Size(88, 35);
-            this.btnGenerateConcut.TabIndex = 5;
-            this.btnGenerateConcut.Text = "Generate";
-            this.btnGenerateConcut.UseVisualStyleBackColor = true;
-            // 
-            // btnClearTab2
-            // 
-            this.btnClearTab2.Location = new System.Drawing.Point(825, 467);
-            this.btnClearTab2.Name = "btnClearTab2";
-            this.btnClearTab2.Size = new System.Drawing.Size(88, 35);
-            this.btnClearTab2.TabIndex = 6;
-            this.btnClearTab2.Text = "Clear";
-            this.btnClearTab2.UseVisualStyleBackColor = true;
-            // 
-            // btnCopyVal
-            // 
-            this.btnCopyVal.Location = new System.Drawing.Point(818, 232);
-            this.btnCopyVal.Name = "btnCopyVal";
-            this.btnCopyVal.Size = new System.Drawing.Size(88, 35);
-            this.btnCopyVal.TabIndex = 7;
-            this.btnCopyVal.Text = "Copy Val";
-            this.btnCopyVal.UseVisualStyleBackColor = true;
-            // 
-            // lblExConcat
-            // 
-            this.lblExConcat.AutoSize = true;
-            this.lblExConcat.Location = new System.Drawing.Point(845, 207);
-            this.lblExConcat.Name = "lblExConcat";
-            this.lblExConcat.Size = new System.Drawing.Size(61, 17);
-            this.lblExConcat.TabIndex = 7;
-            this.lblExConcat.Text = "Example";
+            this.textBox2.Location = new System.Drawing.Point(6, 21);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(299, 183);
+            this.textBox2.TabIndex = 2;
             // 
             // TextControForml
             // 

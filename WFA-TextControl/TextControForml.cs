@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WFA_TextControl.Extensions;
+using WFA_TextControl.ExtensionsForm;
 
 namespace WFA_TextControl
 {
@@ -129,6 +130,22 @@ namespace WFA_TextControl
         private void ckbComma_CheckedChanged(object sender, EventArgs e)
         {
             ckbDelLastCom.SetCheckBox(ckbComma);
+        }
+
+        private void btnCopySingleText_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(txtSingleText_To.Text);
+        }
+
+        private void lblExSingleText_Click(object sender, EventArgs e)
+        {
+            var ex = new ExampleModel();
+            ex.ExTitle = ExampleType.Example;
+            ex.ExType = ExampleType.SingleText;
+            ex.ExHeader = ExampleType.SingleText + " " + ExampleType.Example;
+
+            ExampleForm exf = new ExampleForm(ex);
+            exf.Show();
         }
     }
 }
