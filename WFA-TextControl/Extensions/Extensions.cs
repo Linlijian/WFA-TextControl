@@ -43,7 +43,7 @@ namespace WFA_TextControl.Extensions
                     return _checkbox.Enabled = false;
                 else
                     return _checkbox.Enabled = true;
-            }            
+            }
 
             return string.IsNullOrEmpty(Convert.ToString(data));
         }
@@ -98,4 +98,28 @@ namespace WFA_TextControl.Extensions
             }
         }
     }
+}
+
+class Helper
+{
+    public static void ClearGruopBox(object control)
+    {
+        /*clear control*/
+        var _gbox = (GroupBox)control;
+
+        foreach (Control c in _gbox.Controls)
+        {
+            if (c is CheckBox)
+            {
+                CheckBox _ckb = (CheckBox)c;
+                _ckb.Checked = false;
+            }
+            else if (c is TextBox)
+            {
+                TextBox _ckb = (TextBox)c;
+                _ckb.Text = string.Empty;
+            }
+        }
+    }
+
 }

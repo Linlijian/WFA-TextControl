@@ -224,5 +224,11 @@ namespace WFA_TextControl
             ExampleForm exf = new ExampleForm(ex);
             exf.Show();
         }
+
+        private void btnClearTab1_Click(object sender, EventArgs e)
+        {
+            Helper.ClearGruopBox(gboxParameter);
+            Helper.ClearGruopBox(gboxSingleText);
+        }
     }
 }

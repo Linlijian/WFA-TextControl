@@ -313,6 +313,7 @@
             this.btnClearTab1.TabIndex = 5;
             this.btnClearTab1.Text = "Clear";
             this.btnClearTab1.UseVisualStyleBackColor = true;
+            this.btnClearTab1.Click += new System.EventHandler(this.btnClearTab1_Click);
             // 
             // tabDECLARE
             // 
