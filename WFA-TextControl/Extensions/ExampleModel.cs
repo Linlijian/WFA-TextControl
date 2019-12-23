@@ -54,6 +54,8 @@ namespace WFA_TextControl.Extensions
         public const string NomalField = "NomalField";
         public const string DBField = "DBField";
 
+        public const string Concut = "Concut";
+
     }
 
 }
