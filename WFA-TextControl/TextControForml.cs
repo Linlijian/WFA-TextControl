@@ -177,9 +177,6 @@ namespace WFA_TextControl
             exf.Show();
         }
 
-
-        #endregion
-
         private void btnGenParameter_Click(object sender, EventArgs e)
         {
             var model = new SplitModel();
@@ -196,24 +193,20 @@ namespace WFA_TextControl
                 ckbDBField.BackColor = Color.Red;
                 ckbNomalField.BackColor = Color.Red;
             }
-            
-        }
 
+        }
         private void ckbNomalField_CheckedChanged(object sender, EventArgs e)
         {
             ckbNomalField.ClearCheckBox(ckbDBField);
         }
-
         private void ckbDBField_CheckedChanged(object sender, EventArgs e)
         {
             ckbDBField.ClearCheckBox(ckbNomalField);
         }
-
         private void btnCopyParameter_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(txtParameter_To.Text);
         }
-
         private void lblExParameter_Click(object sender, EventArgs e)
         {
             var ex = new ExampleModel();
@@ -224,11 +217,16 @@ namespace WFA_TextControl
             ExampleForm exf = new ExampleForm(ex);
             exf.Show();
         }
-
         private void btnClearTab1_Click(object sender, EventArgs e)
         {
             Helper.ClearGruopBox(gboxParameter);
             Helper.ClearGruopBox(gboxSingleText);
         }
+        #endregion
+
+        #region DECLARE Tab
+
+        #endregion
+
     }
 }
