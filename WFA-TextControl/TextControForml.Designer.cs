@@ -64,11 +64,12 @@
             this.tabReport = new System.Windows.Forms.TabPage();
             this.btnClearTab3 = new System.Windows.Forms.Button();
             this.gboxSplitLinkReport = new System.Windows.Forms.GroupBox();
+            this.lblExLinkReport = new System.Windows.Forms.Label();
             this.btnLinkReport = new System.Windows.Forms.Button();
             this.txtLink_from = new System.Windows.Forms.TextBox();
             this.txtLink_to = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblExLinkReport = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.tabControl2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSplitText.SuspendLayout();
@@ -465,6 +466,16 @@
             this.gboxSplitLinkReport.TabStop = false;
             this.gboxSplitLinkReport.Text = "Link Report";
             // 
+            // lblExLinkReport
+            // 
+            this.lblExLinkReport.AutoSize = true;
+            this.lblExLinkReport.Location = new System.Drawing.Point(237, 139);
+            this.lblExLinkReport.Name = "lblExLinkReport";
+            this.lblExLinkReport.Size = new System.Drawing.Size(61, 17);
+            this.lblExLinkReport.TabIndex = 3;
+            this.lblExLinkReport.Text = "Example";
+            this.lblExLinkReport.Click += new System.EventHandler(this.lblExLinkReport_Click);
+            // 
             // btnLinkReport
             // 
             this.btnLinkReport.Location = new System.Drawing.Point(304, 18);
@@ -500,21 +511,20 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Meiio";
             // 
-            // lblExLinkReport
+            // lblVersion
             // 
-            this.lblExLinkReport.AutoSize = true;
-            this.lblExLinkReport.Location = new System.Drawing.Point(237, 139);
-            this.lblExLinkReport.Name = "lblExLinkReport";
-            this.lblExLinkReport.Size = new System.Drawing.Size(61, 17);
-            this.lblExLinkReport.TabIndex = 3;
-            this.lblExLinkReport.Text = "Example";
-            this.lblExLinkReport.Click += new System.EventHandler(this.lblExLinkReport_Click);
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(12, 544);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(0, 17);
+            this.lblVersion.TabIndex = 7;
             // 
             // TextControForml
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(941, 561);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.tabControl2);
@@ -584,6 +594,7 @@
         private System.Windows.Forms.Button btnClearTab3;
         private System.Windows.Forms.Button btnLinkReport;
         private System.Windows.Forms.Label lblExLinkReport;
+        private System.Windows.Forms.Label lblVersion;
     }
 }
 

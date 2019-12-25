@@ -21,6 +21,7 @@ namespace WFA_TextControl
         {
             InitializeComponent();
             AutoUpdater.Start("https://raw.githubusercontent.com/Linlijian/WFA-TextControl/master/WFA-TextControl/AutoUpdater.xml");
+            lblVersion.Text = System.Windows.Forms.Application.ProductVersion.ToString();
         }
         #endregion
 
@@ -385,6 +386,5 @@ namespace WFA_TextControl
             exf.Show();
         }
         #endregion
-
     }
 }
