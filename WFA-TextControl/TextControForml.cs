@@ -362,6 +362,7 @@ namespace WFA_TextControl
 
         #endregion
 
+        #region Link Report Tab
         private void btnLinkReport_Click(object sender, EventArgs e)
         {
             var model = new SplitModel();
@@ -383,5 +384,7 @@ namespace WFA_TextControl
             ExampleForm exf = new ExampleForm(ex);
             exf.Show();
         }
+        #endregion
+
     }
 }
