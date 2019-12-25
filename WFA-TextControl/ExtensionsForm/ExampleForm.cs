@@ -20,6 +20,10 @@ namespace WFA_TextControl.ExtensionsForm
             //set new windown title
             this.Text = !ex.ExTitle.IsNullOrEmpty() ? ex.ExTitle : ExampleType.Example;
 
+            //set new size
+            if(!ex.ExPropHeight.IsNullOrEmpty() && !ex.ExPropWidth.IsNullOrEmpty())
+                this.ClientSize = new System.Drawing.Size(ex.ExPropWidth, ex.ExPropHeight);
+
             lblExheader.Text = !ex.ExHeader.IsNullOrEmpty() ? ex.ExHeader : ExampleType.Example;
             lblExfooter.Text = !ex.ExFooter.IsNullOrEmpty() ? ex.ExFooter : string.Empty;
 
@@ -50,6 +54,11 @@ namespace WFA_TextControl.ExtensionsForm
                 _body += "[Field2] [datatype](1) Not Null,\n";
                 _body += "[Field3] [datatype] Null,\n";
                 _body += "[Field4] [datatype] Null\n";
+                lblExbody.Text = _body;
+            }
+            else if (ex.ExType == ExampleType.LinkReport)
+            {
+                _body = "http://x.x.xx.xxx/ReportServer/Parameters=false&parameter1=0&parameter0=xxx&parameter3=xxx";
                 lblExbody.Text = _body;
             }
 

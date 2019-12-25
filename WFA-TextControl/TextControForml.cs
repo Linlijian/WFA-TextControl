@@ -64,6 +64,18 @@ namespace WFA_TextControl
                     .Replace("\t", "")
                     .Split(model.spearator, StringSplitOptions.RemoveEmptyEntries);
             }
+            else if (mode == ExampleType.LinkReport) 
+            {
+                model.FirstLoop = true;
+                model.StringText = txtLink_from.Text;
+                model.TextArea = model.StringText.Split(model.spearator_report_p, StringSplitOptions.RemoveEmptyEntries);
+                if (model.TextArea.Count() > 0)
+                {
+                    model.TextFindAll = model.TextArea[1]
+                                            .Replace(model.persen20, "")
+                                            .Split(model.operator_and, StringSplitOptions.RemoveEmptyEntries);
+                }
+            }
 
             return model;
         }
@@ -96,6 +108,32 @@ namespace WFA_TextControl
             catch (Exception ex)
             {
                 string msg = "query text";
+                MessageBox.Show("Check input text in format " + msg + " or null\nHelp: Lock Example!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void FetchLinkReport2Output(SplitModel model)
+        {
+            try
+            {
+                int a = 112;
+                string last = model.TextFindAll.Last();
+
+                foreach (var intem in model.TextFindAll)
+                {
+                    if (model.FirstLoop)
+                    {
+                        txtLink_to.Text = CaseOutput(intem, a);
+                        model.FirstLoop = false;
+                    }
+                    else
+                    {
+                        txtLink_to.Text += CaseOutput(intem, a);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string msg = "Report Parameter";
                 MessageBox.Show("Check input text in format " + msg + " or null\nHelp: Lock Example!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -323,8 +361,29 @@ namespace WFA_TextControl
             ExampleForm exf = new ExampleForm(ex);
             exf.Show();
         }
+
         #endregion
 
+        private void btnLinkReport_Click(object sender, EventArgs e)
+        {
+            var model = new SplitModel();
 
+            SetDefualtData(model, ExampleType.LinkReport);
+            FetchLinkReport2Output(model);
+        }
+
+        private void lblExLinkReport_Click(object sender, EventArgs e)
+        {
+            var ex = new ExampleModel();
+            ex.ExTitle = ExampleType.Example;
+            ex.ExType = ExampleType.LinkReport;
+            ex.ExFooter = "Example from Link Report";
+            ex.ExHeader = ExampleType.LinkReport + " " + ExampleType.Example;
+            ex.ExPropHeight = 80;
+            ex.ExPropWidth = 600;
+
+            ExampleForm exf = new ExampleForm(ex);
+            exf.Show();
+        }
     }
 }

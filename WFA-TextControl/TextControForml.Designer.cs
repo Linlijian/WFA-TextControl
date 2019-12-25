@@ -61,7 +61,14 @@
             this.txtDECLARE_to_cur = new System.Windows.Forms.TextBox();
             this.btnCopyCur = new System.Windows.Forms.Button();
             this.txtDECLARE_from = new System.Windows.Forms.TextBox();
+            this.tabReport = new System.Windows.Forms.TabPage();
+            this.btnClearTab3 = new System.Windows.Forms.Button();
+            this.gboxSplitLinkReport = new System.Windows.Forms.GroupBox();
+            this.btnLinkReport = new System.Windows.Forms.Button();
+            this.txtLink_from = new System.Windows.Forms.TextBox();
+            this.txtLink_to = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblExLinkReport = new System.Windows.Forms.Label();
             this.tabControl2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSplitText.SuspendLayout();
@@ -69,6 +76,8 @@
             this.gboxSingleText.SuspendLayout();
             this.tabDECLARE.SuspendLayout();
             this.gboxConcat.SuspendLayout();
+            this.tabReport.SuspendLayout();
+            this.gboxSplitLinkReport.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl2
@@ -105,6 +114,7 @@
             // 
             this.tabControl.Controls.Add(this.tabSplitText);
             this.tabControl.Controls.Add(this.tabDECLARE);
+            this.tabControl.Controls.Add(this.tabReport);
             this.tabControl.Location = new System.Drawing.Point(6, 3);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -421,6 +431,66 @@
             this.txtDECLARE_from.Size = new System.Drawing.Size(299, 183);
             this.txtDECLARE_from.TabIndex = 2;
             // 
+            // tabReport
+            // 
+            this.tabReport.Controls.Add(this.btnClearTab3);
+            this.tabReport.Controls.Add(this.gboxSplitLinkReport);
+            this.tabReport.Location = new System.Drawing.Point(4, 25);
+            this.tabReport.Name = "tabReport";
+            this.tabReport.Padding = new System.Windows.Forms.Padding(3);
+            this.tabReport.Size = new System.Drawing.Size(926, 509);
+            this.tabReport.TabIndex = 2;
+            this.tabReport.Text = "Report";
+            this.tabReport.UseVisualStyleBackColor = true;
+            // 
+            // btnClearTab3
+            // 
+            this.btnClearTab3.Location = new System.Drawing.Point(825, 467);
+            this.btnClearTab3.Name = "btnClearTab3";
+            this.btnClearTab3.Size = new System.Drawing.Size(88, 35);
+            this.btnClearTab3.TabIndex = 2;
+            this.btnClearTab3.Text = "Clear";
+            this.btnClearTab3.UseVisualStyleBackColor = true;
+            // 
+            // gboxSplitLinkReport
+            // 
+            this.gboxSplitLinkReport.Controls.Add(this.lblExLinkReport);
+            this.gboxSplitLinkReport.Controls.Add(this.btnLinkReport);
+            this.gboxSplitLinkReport.Controls.Add(this.txtLink_from);
+            this.gboxSplitLinkReport.Controls.Add(this.txtLink_to);
+            this.gboxSplitLinkReport.Location = new System.Drawing.Point(6, 6);
+            this.gboxSplitLinkReport.Name = "gboxSplitLinkReport";
+            this.gboxSplitLinkReport.Size = new System.Drawing.Size(405, 169);
+            this.gboxSplitLinkReport.TabIndex = 0;
+            this.gboxSplitLinkReport.TabStop = false;
+            this.gboxSplitLinkReport.Text = "Link Report";
+            // 
+            // btnLinkReport
+            // 
+            this.btnLinkReport.Location = new System.Drawing.Point(304, 18);
+            this.btnLinkReport.Name = "btnLinkReport";
+            this.btnLinkReport.Size = new System.Drawing.Size(83, 28);
+            this.btnLinkReport.TabIndex = 3;
+            this.btnLinkReport.Text = "Generate";
+            this.btnLinkReport.UseVisualStyleBackColor = true;
+            this.btnLinkReport.Click += new System.EventHandler(this.btnLinkReport_Click);
+            // 
+            // txtLink_from
+            // 
+            this.txtLink_from.Location = new System.Drawing.Point(6, 21);
+            this.txtLink_from.Name = "txtLink_from";
+            this.txtLink_from.Size = new System.Drawing.Size(292, 22);
+            this.txtLink_from.TabIndex = 1;
+            // 
+            // txtLink_to
+            // 
+            this.txtLink_to.Location = new System.Drawing.Point(6, 49);
+            this.txtLink_to.Multiline = true;
+            this.txtLink_to.Name = "txtLink_to";
+            this.txtLink_to.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtLink_to.Size = new System.Drawing.Size(292, 87);
+            this.txtLink_to.TabIndex = 1;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -429,6 +499,16 @@
             this.label1.Size = new System.Drawing.Size(41, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "Meiio";
+            // 
+            // lblExLinkReport
+            // 
+            this.lblExLinkReport.AutoSize = true;
+            this.lblExLinkReport.Location = new System.Drawing.Point(237, 139);
+            this.lblExLinkReport.Name = "lblExLinkReport";
+            this.lblExLinkReport.Size = new System.Drawing.Size(61, 17);
+            this.lblExLinkReport.TabIndex = 3;
+            this.lblExLinkReport.Text = "Example";
+            this.lblExLinkReport.Click += new System.EventHandler(this.lblExLinkReport_Click);
             // 
             // TextControForml
             // 
@@ -454,6 +534,9 @@
             this.tabDECLARE.ResumeLayout(false);
             this.gboxConcat.ResumeLayout(false);
             this.gboxConcat.PerformLayout();
+            this.tabReport.ResumeLayout(false);
+            this.gboxSplitLinkReport.ResumeLayout(false);
+            this.gboxSplitLinkReport.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,6 +577,13 @@
         private System.Windows.Forms.Button btnCopyCur;
         private System.Windows.Forms.Label lblExConcat;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage tabReport;
+        private System.Windows.Forms.GroupBox gboxSplitLinkReport;
+        private System.Windows.Forms.TextBox txtLink_from;
+        private System.Windows.Forms.TextBox txtLink_to;
+        private System.Windows.Forms.Button btnClearTab3;
+        private System.Windows.Forms.Button btnLinkReport;
+        private System.Windows.Forms.Label lblExLinkReport;
     }
 }
 

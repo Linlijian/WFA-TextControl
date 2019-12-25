@@ -42,6 +42,20 @@ namespace WFA_TextControl.Extensions
             get { return _type; }
             set { _type = value; }
         }
+
+        private int _height = 0;
+        public int ExPropHeight
+        {
+            get { return _height; }
+            set { _height = value; }
+        }
+
+        private int _width = 0;
+        public int ExPropWidth
+        {
+            get { return _width; }
+            set { _width = value; }
+        }
     }
 
     public class ExampleType
@@ -56,6 +70,7 @@ namespace WFA_TextControl.Extensions
 
         public const string Concut = "Concut";
 
-    }
+        public const string LinkReport = "LinkReport";
 
+    }
 }
