@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WFA_TextControl.Extensions;
 using WFA_TextControl.ExtensionsForm;
+using AutoUpdaterDotNET;
 
 namespace WFA_TextControl
 {
@@ -23,6 +20,7 @@ namespace WFA_TextControl
         public TextControForml()
         {
             InitializeComponent();
+            AutoUpdater.Start("http://rbsoft.org/updates/AutoUpdaterTest.xml");
         }
         #endregion
 
