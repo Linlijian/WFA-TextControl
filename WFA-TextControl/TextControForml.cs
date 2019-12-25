@@ -20,7 +20,7 @@ namespace WFA_TextControl
         public TextControForml()
         {
             InitializeComponent();
-            AutoUpdater.Start("http://rbsoft.org/updates/AutoUpdaterTest.xml");
+            AutoUpdater.Start("https://raw.githubusercontent.com/Linlijian/WFA-TextControl/master/WFA-TextControl/AutoUpdater.xml");
         }
         #endregion
 
