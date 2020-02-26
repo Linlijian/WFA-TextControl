@@ -70,6 +70,12 @@
             this.txtLink_to = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
+            this.tabDDL = new System.Windows.Forms.TabPage();
+            this.txtDDLFrom = new System.Windows.Forms.TextBox();
+            this.gboxDDLOnInspect = new System.Windows.Forms.GroupBox();
+            this.txtDDLTo = new System.Windows.Forms.TextBox();
+            this.btnGenerateDDL = new System.Windows.Forms.Button();
+            this.btnCopyDDL = new System.Windows.Forms.Button();
             this.tabControl2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSplitText.SuspendLayout();
@@ -79,6 +85,8 @@
             this.gboxConcat.SuspendLayout();
             this.tabReport.SuspendLayout();
             this.gboxSplitLinkReport.SuspendLayout();
+            this.tabDDL.SuspendLayout();
+            this.gboxDDLOnInspect.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl2
@@ -116,6 +124,7 @@
             this.tabControl.Controls.Add(this.tabSplitText);
             this.tabControl.Controls.Add(this.tabDECLARE);
             this.tabControl.Controls.Add(this.tabReport);
+            this.tabControl.Controls.Add(this.tabDDL);
             this.tabControl.Location = new System.Drawing.Point(6, 3);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -519,6 +528,68 @@
             this.lblVersion.Size = new System.Drawing.Size(0, 17);
             this.lblVersion.TabIndex = 7;
             // 
+            // tabDDL
+            // 
+            this.tabDDL.Controls.Add(this.gboxDDLOnInspect);
+            this.tabDDL.Location = new System.Drawing.Point(4, 25);
+            this.tabDDL.Name = "tabDDL";
+            this.tabDDL.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDDL.Size = new System.Drawing.Size(926, 509);
+            this.tabDDL.TabIndex = 3;
+            this.tabDDL.Text = "DDL";
+            this.tabDDL.UseVisualStyleBackColor = true;
+            // 
+            // txtDDLFrom
+            // 
+            this.txtDDLFrom.Location = new System.Drawing.Point(6, 21);
+            this.txtDDLFrom.Multiline = true;
+            this.txtDDLFrom.Name = "txtDDLFrom";
+            this.txtDDLFrom.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDDLFrom.Size = new System.Drawing.Size(225, 177);
+            this.txtDDLFrom.TabIndex = 0;
+            // 
+            // gboxDDLOnInspect
+            // 
+            this.gboxDDLOnInspect.Controls.Add(this.btnGenerateDDL);
+            this.gboxDDLOnInspect.Controls.Add(this.btnCopyDDL);
+            this.gboxDDLOnInspect.Controls.Add(this.txtDDLTo);
+            this.gboxDDLOnInspect.Controls.Add(this.txtDDLFrom);
+            this.gboxDDLOnInspect.Location = new System.Drawing.Point(6, 6);
+            this.gboxDDLOnInspect.Name = "gboxDDLOnInspect";
+            this.gboxDDLOnInspect.Size = new System.Drawing.Size(478, 287);
+            this.gboxDDLOnInspect.TabIndex = 1;
+            this.gboxDDLOnInspect.TabStop = false;
+            this.gboxDDLOnInspect.Text = "DDL on Inspect";
+            // 
+            // txtDDLTo
+            // 
+            this.txtDDLTo.Enabled = false;
+            this.txtDDLTo.Location = new System.Drawing.Point(237, 21);
+            this.txtDDLTo.Multiline = true;
+            this.txtDDLTo.Name = "txtDDLTo";
+            this.txtDDLTo.Size = new System.Drawing.Size(235, 177);
+            this.txtDDLTo.TabIndex = 2;
+            // 
+            // btnGenerateDDL
+            // 
+            this.btnGenerateDDL.Location = new System.Drawing.Point(290, 246);
+            this.btnGenerateDDL.Name = "btnGenerateDDL";
+            this.btnGenerateDDL.Size = new System.Drawing.Size(88, 35);
+            this.btnGenerateDDL.TabIndex = 2;
+            this.btnGenerateDDL.Text = "Generate";
+            this.btnGenerateDDL.UseVisualStyleBackColor = true;
+            this.btnGenerateDDL.Click += new System.EventHandler(this.btnGenerateDDL_Click);
+            // 
+            // btnCopyDDL
+            // 
+            this.btnCopyDDL.Location = new System.Drawing.Point(384, 246);
+            this.btnCopyDDL.Name = "btnCopyDDL";
+            this.btnCopyDDL.Size = new System.Drawing.Size(88, 35);
+            this.btnCopyDDL.TabIndex = 3;
+            this.btnCopyDDL.Text = "Copy";
+            this.btnCopyDDL.UseVisualStyleBackColor = true;
+            this.btnCopyDDL.Click += new System.EventHandler(this.btnCopyDDL_Click);
+            // 
             // TextControForml
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -547,6 +618,9 @@
             this.tabReport.ResumeLayout(false);
             this.gboxSplitLinkReport.ResumeLayout(false);
             this.gboxSplitLinkReport.PerformLayout();
+            this.tabDDL.ResumeLayout(false);
+            this.gboxDDLOnInspect.ResumeLayout(false);
+            this.gboxDDLOnInspect.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,6 +669,12 @@
         private System.Windows.Forms.Button btnLinkReport;
         private System.Windows.Forms.Label lblExLinkReport;
         private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.TabPage tabDDL;
+        private System.Windows.Forms.GroupBox gboxDDLOnInspect;
+        private System.Windows.Forms.Button btnGenerateDDL;
+        private System.Windows.Forms.Button btnCopyDDL;
+        private System.Windows.Forms.TextBox txtDDLTo;
+        private System.Windows.Forms.TextBox txtDDLFrom;
     }
 }
 

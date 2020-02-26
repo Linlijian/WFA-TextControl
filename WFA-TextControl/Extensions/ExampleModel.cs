@@ -72,5 +72,7 @@ namespace WFA_TextControl.Extensions
 
         public const string LinkReport = "LinkReport";
 
+        public const string DDLInspect = "DDLInspect";
+
     }
 }

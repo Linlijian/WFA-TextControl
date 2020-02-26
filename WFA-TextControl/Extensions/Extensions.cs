@@ -98,6 +98,15 @@ namespace WFA_TextControl.Extensions
                 _textbox.Text = t.Substring(0, t.Length - 3);
             }
         }
+        public static void DeleteATSign(this object data)
+        {
+            if (!IsNullOrEmpty(data))
+            {
+                var _textbox = (TextBox)data;
+                string t = _textbox.Text;
+                _textbox.Text = t.Replace("@","");
+            }
+        }
         public static void SetDefualtCheck(this object data)
         {
             if (!IsNullOrEmpty(data))

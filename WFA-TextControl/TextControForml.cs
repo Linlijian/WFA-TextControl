@@ -75,6 +75,14 @@ namespace WFA_TextControl
                                             .Split(model.operator_and, StringSplitOptions.RemoveEmptyEntries);
                 }
             }
+            else if (mode == ExampleType.DDLInspect)
+            { //.Replace("\"", "\r\n")
+                model.FirstLoop = true;
+                model.StringText = txtDDLFrom.Text;
+                model.TextArea = model.StringText.Replace("\r\n", "").Replace("value=\"", "@").Replace(">", "\r\n").Replace("\"", "@\r\n").Split(null);
+                model.TextFindAll = Array.FindAll(model.TextArea, element => element.StartsWith("@", StringComparison.Ordinal));
+            }
+
 
             return model;
         }
@@ -101,6 +109,36 @@ namespace WFA_TextControl
                     if (last.Equals(intem) && ckbDelLastCom.Checked)
                     {
                         txtSingleText_To.DeleteLastComma();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string msg = "query text";
+                MessageBox.Show("Check input text in format " + msg + " or null\nHelp: Lock Example!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void FetchData2DDL(SplitModel model)
+        {
+            try
+            {               
+                string last = model.TextFindAll.Last();
+
+                foreach (var intem in model.TextFindAll)
+                {
+                    if (model.FirstLoop)
+                    {
+                        txtDDLTo.Text = CaseOutput(intem, 112);
+                        model.FirstLoop = false;
+                    }
+                    else
+                    {
+                        txtDDLTo.Text += CaseOutput(intem, 112);
+                    }
+
+                    if (last.Equals(intem))
+                    {
+                        txtDDLTo.DeleteATSign();
                     }
                 }
             }
@@ -384,6 +422,20 @@ namespace WFA_TextControl
 
             ExampleForm exf = new ExampleForm(ex);
             exf.Show();
+        }
+        #endregion
+
+        #region DDLInspect
+        private void btnGenerateDDL_Click(object sender, EventArgs e)
+        {
+            var model = new SplitModel();
+
+            SetDefualtData(model, ExampleType.DDLInspect);
+            FetchData2DDL(model);
+        }
+        private void btnCopyDDL_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(txtDDLTo.Text);
         }
         #endregion
     }
