@@ -76,11 +76,18 @@ namespace WFA_TextControl
                 }
             }
             else if (mode == ExampleType.DDLInspect)
-            { //.Replace("\"", "\r\n")
+            {
+                //vales
+                //model.FirstLoop = true;
+                //model.StringText = txtDDLFrom.Text;
+                //model.TextArea = model.StringText.Replace("\r\n", "").Replace("value=\"", "@").Replace(">", "\r\n").Replace("\"", "@\r\n").Split(null);
+                //model.TextFindAll = Array.FindAll(model.TextArea, element => element.StartsWith("@", StringComparison.Ordinal));
+
+                //text
                 model.FirstLoop = true;
                 model.StringText = txtDDLFrom.Text;
-                model.TextArea = model.StringText.Replace("\r\n", "").Replace("value=\"", "@").Replace(">", "\r\n").Replace("\"", "@\r\n").Split(null);
-                model.TextFindAll = Array.FindAll(model.TextArea, element => element.StartsWith("@", StringComparison.Ordinal));
+                model.TextArea = model.StringText.Replace("<option value=\"", "@").Replace(">","@").Replace("</option", "Q").Split('@');
+                model.TextFindAll = Array.FindAll(model.TextArea, element => element.EndsWith("Q", StringComparison.Ordinal));
             }
 
 

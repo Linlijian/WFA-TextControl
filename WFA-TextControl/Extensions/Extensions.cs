@@ -104,7 +104,7 @@ namespace WFA_TextControl.Extensions
             {
                 var _textbox = (TextBox)data;
                 string t = _textbox.Text;
-                _textbox.Text = t.Replace("@","");
+                _textbox.Text = t.Replace("Q","");
             }
         }
         public static void SetDefualtCheck(this object data)
