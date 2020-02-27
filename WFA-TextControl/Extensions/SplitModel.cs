@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace WFA_TextControl.Extensions
 {
-    class SplitModel : StandardModel
+    public partial class SplitModel : StandardModel
     {
         private bool isFirst = true;
         private int outputCase = 0;
         string txt = string.Empty;
         string[] txtas = null;
         string[] txtafter = null;
+        string txt_input = string.Empty;
 
         public bool FirstLoop
         {
@@ -48,6 +49,11 @@ namespace WFA_TextControl.Extensions
         {
             get { return txtafter; }
             set { txtafter = value; }
+        }
+        public string TextInput
+        {
+            get { return txt_input; }
+            set { txt_input = value; }
         }
     }
 }

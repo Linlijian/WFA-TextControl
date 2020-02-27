@@ -74,6 +74,8 @@
     <Compile Include="ExtensionsForm\ExampleForm.Designer.cs">
       <DependentUpon>ExampleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\baseDA.cs" />
+    <Compile Include="Extensions\baseDTO.cs" />
     <Compile Include="Extensions\ExampleModel.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Extensions\SplitModel.cs" />
@@ -120,7 +122,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AutoUpdater.xml" />
+    <Content Include="AutoUpdater.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Release\version.xml" />
     <Content Include="unnamed.ico" />
   </ItemGroup>

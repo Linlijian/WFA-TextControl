@@ -28,69 +28,6 @@ namespace WFA_TextControl
         #region Method
         private SplitModel SetDefualtData(SplitModel model, string mode)
         {
-            if (mode == ExampleType.SingleText)
-            {
-                model.FirstLoop = true;
-                model.StringText = txtSingleText_From.Text;
-                model.TextArea = model.StringText.Replace("\r\n", "").Replace(",", "").Split(null);
-                model.TextFindAll = Array.FindAll(model.TextArea, element => element.StartsWith("@", StringComparison.Ordinal));
-            }
-            else if (mode == ExampleType.Parameter)
-            {
-                if (ckbNomalField.Checked)
-                {
-                    model.FirstLoop = true;
-                    model.StringText = txtParameter_From.Text;
-                    model.TextArea = model.StringText.Replace("\r\n", " ").Split(null);
-                    model.TextFindAll = model.TextArea;
-                }
-                else
-                {
-                    model.FirstLoop = true;
-                    model.StringText = txtParameter_From.Text;
-                    model.TextArea = model.StringText.Replace("\r\n", "").Replace(",", "").Replace("[", "").Replace("]", "").Split(null);
-                    model.TextFindAll = model.TextArea.Where(a => !a.IsNullOrEmpty()).ToArray();
-                }
-            }
-            else if (mode == ExampleType.Concut) 
-            {
-                model.FirstLoop = true;
-                model.StringText = txtDECLARE_from.Text;
-                model.TextArea = model.StringText.Replace("\r\n", "").Replace("\t", "").Replace(",", "").Replace("[", "").Replace("]", "").Split(null);
-                model.TextFindAll = model.StringText.Replace("\r\n", "")
-                    .Replace("[", "")
-                    .Replace("]", "")
-                    .Replace("\t", "")
-                    .Split(model.spearator, StringSplitOptions.RemoveEmptyEntries);
-            }
-            else if (mode == ExampleType.LinkReport) 
-            {
-                model.FirstLoop = true;
-                model.StringText = txtLink_from.Text;
-                model.TextArea = model.StringText.Split(model.spearator_report_p, StringSplitOptions.RemoveEmptyEntries);
-                if (model.TextArea.Count() > 0)
-                {
-                    model.TextFindAll = model.TextArea[1]
-                                            .Replace(model.persen20, "")
-                                            .Split(model.operator_and, StringSplitOptions.RemoveEmptyEntries);
-                }
-            }
-            else if (mode == ExampleType.DDLInspect)
-            {
-                //vales
-                //model.FirstLoop = true;
-                //model.StringText = txtDDLFrom.Text;
-                //model.TextArea = model.StringText.Replace("\r\n", "").Replace("value=\"", "@").Replace(">", "\r\n").Replace("\"", "@\r\n").Split(null);
-                //model.TextFindAll = Array.FindAll(model.TextArea, element => element.StartsWith("@", StringComparison.Ordinal));
-
-                //text
-                model.FirstLoop = true;
-                model.StringText = txtDDLFrom.Text;
-                model.TextArea = model.StringText.Replace("<option value=\"", "@").Replace(">","@").Replace("</option", "Q").Split('@');
-                model.TextFindAll = Array.FindAll(model.TextArea, element => element.EndsWith("Q", StringComparison.Ordinal));
-            }
-
-
             return model;
         }
         private void FetchData2Output(SplitModel model)
@@ -307,14 +244,20 @@ namespace WFA_TextControl
 
         private void btnGenParameter_Click(object sender, EventArgs e)
         {
-            var model = new SplitModel();
             if (ckbNomalField.Checked || ckbDBField.Checked)
             {
                 ckbDBField.BackColor = Color.Empty;
                 ckbNomalField.BackColor = Color.Empty;
 
-                SetDefualtData(model, ExampleType.Parameter);
-                FetchData2AddParameter(model);
+                var da = new baseDA();
+
+                da.DTO.Model.FirstLoop = true;
+                da.DTO.Model.StringText = txtParameter_From.Text;
+                da.DTO.Model.OutputCase = ckbNomalField.Checked ? 1 : 0;
+                da.DTO.Model.ExecuteType = ExampleType.Parameter;
+                da.Setting(da.DTO);
+
+                FetchData2AddParameter(da.DTO.Model);
             }
             else
             {
@@ -355,10 +298,14 @@ namespace WFA_TextControl
         #region DECLARE Tab
         private void btnGenerateConcut_Click(object sender, EventArgs e)
         {
-            var model = new SplitModel();
+            var da = new baseDA();
 
-            SetDefualtData(model, ExampleType.Concut);
-            ConcatData2Output(model);
+            da.DTO.Model.FirstLoop = true;
+            da.DTO.Model.StringText = txtDECLARE_to_cur.Text;
+            da.DTO.Model.ExecuteType = ExampleType.Parameter;
+            da.Setting(da.DTO);
+
+            ConcatData2Output(da.DTO.Model);
         }
         private string Text2Cur(string txt, int type)
         {
@@ -411,10 +358,14 @@ namespace WFA_TextControl
         #region Link Report Tab
         private void btnLinkReport_Click(object sender, EventArgs e)
         {
-            var model = new SplitModel();
+            var da = new baseDA();
 
-            SetDefualtData(model, ExampleType.LinkReport);
-            FetchLinkReport2Output(model);
+            da.DTO.Model.FirstLoop = true;
+            da.DTO.Model.StringText = txtLink_from.Text;
+            da.DTO.Model.ExecuteType = ExampleType.LinkReport;
+            da.Setting(da.DTO);
+
+            FetchLinkReport2Output(da.DTO.Model);
         }
 
         private void lblExLinkReport_Click(object sender, EventArgs e)
@@ -435,15 +386,24 @@ namespace WFA_TextControl
         #region DDLInspect
         private void btnGenerateDDL_Click(object sender, EventArgs e)
         {
-            var model = new SplitModel();
+            var da = new baseDA();
 
-            SetDefualtData(model, ExampleType.DDLInspect);
-            FetchData2DDL(model);
+            da.DTO.Model.FirstLoop = true;
+            da.DTO.Model.StringText = txtDDLFrom.Text;
+            da.DTO.Model.ExecuteType = ExampleType.DDLInspect;
+            da.Setting(da.DTO);
+
+            FetchData2DDL(da.DTO.Model);
         }
         private void btnCopyDDL_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(txtDDLTo.Text);
         }
+        private void btnClearTab4_Click(object sender, EventArgs e)
+        {
+            Helper.ClearGruopBox(gboxDDLOnInspect);
+        }
+
         #endregion
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WFA_TextControl.Extensions
 {
-    class StandardModel
+    public class StandardModel
     {
         public String[] spearator = { "NULL,", "NOT NULL," };
         public String[] spearator_report_p = { "Parameters=false", "Parameters=true" };
@@ -24,5 +24,7 @@ namespace WFA_TextControl.Extensions
         public String persen100 = "%100";
 
         public String[] operator_and = { "&" };
+
+        public String ExecuteType;
     }
 }
