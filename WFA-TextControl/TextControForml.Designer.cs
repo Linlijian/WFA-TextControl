@@ -78,6 +78,10 @@
             this.txtDDLFrom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
+            this.txtConcatAFrom = new System.Windows.Forms.TextBox();
+            this.txtConcatATo = new System.Windows.Forms.TextBox();
+            this.GenerateConcat = new System.Windows.Forms.Button();
+            this.CopyConcat = new System.Windows.Forms.Button();
             this.tabControl2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabSplitText.SuspendLayout();
@@ -340,6 +344,10 @@
             // 
             // tabDECLARE
             // 
+            this.tabDECLARE.Controls.Add(this.CopyConcat);
+            this.tabDECLARE.Controls.Add(this.GenerateConcat);
+            this.tabDECLARE.Controls.Add(this.txtConcatATo);
+            this.tabDECLARE.Controls.Add(this.txtConcatAFrom);
             this.tabDECLARE.Controls.Add(this.btnClearTab2);
             this.tabDECLARE.Controls.Add(this.gboxConcat);
             this.tabDECLARE.Location = new System.Drawing.Point(4, 25);
@@ -612,6 +620,44 @@
             this.lblVersion.Size = new System.Drawing.Size(0, 17);
             this.lblVersion.TabIndex = 7;
             // 
+            // txtConcatAFrom
+            // 
+            this.txtConcatAFrom.Location = new System.Drawing.Point(13, 295);
+            this.txtConcatAFrom.Multiline = true;
+            this.txtConcatAFrom.Name = "txtConcatAFrom";
+            this.txtConcatAFrom.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtConcatAFrom.Size = new System.Drawing.Size(299, 183);
+            this.txtConcatAFrom.TabIndex = 7;
+            // 
+            // txtConcatATo
+            // 
+            this.txtConcatATo.Enabled = false;
+            this.txtConcatATo.Location = new System.Drawing.Point(328, 295);
+            this.txtConcatATo.Multiline = true;
+            this.txtConcatATo.Name = "txtConcatATo";
+            this.txtConcatATo.Size = new System.Drawing.Size(299, 183);
+            this.txtConcatATo.TabIndex = 8;
+            // 
+            // GenerateConcat
+            // 
+            this.GenerateConcat.Location = new System.Drawing.Point(637, 402);
+            this.GenerateConcat.Name = "GenerateConcat";
+            this.GenerateConcat.Size = new System.Drawing.Size(88, 35);
+            this.GenerateConcat.TabIndex = 9;
+            this.GenerateConcat.Text = "Generate";
+            this.GenerateConcat.UseVisualStyleBackColor = true;
+            this.GenerateConcat.Click += new System.EventHandler(this.GenerateConcat_Click);
+            // 
+            // CopyConcat
+            // 
+            this.CopyConcat.Location = new System.Drawing.Point(637, 443);
+            this.CopyConcat.Name = "CopyConcat";
+            this.CopyConcat.Size = new System.Drawing.Size(88, 35);
+            this.CopyConcat.TabIndex = 8;
+            this.CopyConcat.Text = "Copy A";
+            this.CopyConcat.UseVisualStyleBackColor = true;
+            this.CopyConcat.Click += new System.EventHandler(this.CopyConcat_Click);
+            // 
             // TextControForml
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -635,6 +681,7 @@
             this.gboxSingleText.ResumeLayout(false);
             this.gboxSingleText.PerformLayout();
             this.tabDECLARE.ResumeLayout(false);
+            this.tabDECLARE.PerformLayout();
             this.gboxConcat.ResumeLayout(false);
             this.gboxConcat.PerformLayout();
             this.tabReport.ResumeLayout(false);
@@ -699,6 +746,10 @@
         private System.Windows.Forms.TextBox txtDDLFrom;
         private System.Windows.Forms.Button btnClearTab4;
         private System.Windows.Forms.Label lblExDDL;
+        private System.Windows.Forms.Button CopyConcat;
+        private System.Windows.Forms.Button GenerateConcat;
+        private System.Windows.Forms.TextBox txtConcatATo;
+        private System.Windows.Forms.TextBox txtConcatAFrom;
     }
 }
 

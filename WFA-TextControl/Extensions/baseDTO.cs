@@ -26,6 +26,7 @@ namespace WFA_TextControl.Extensions
         public const string DBField = "DBField";
 
         public const string Concut = "Concut";
+        public const string ConcutA = "ConcutA";
 
         public const string LinkReport = "LinkReport";
 

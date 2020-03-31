@@ -153,6 +153,37 @@ namespace WFA_TextControl
                 MessageBox.Show("Check input text in format " + msg + " or null\nHelp: Lock Example!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void ConcatAData2Output(SplitModel model)
+        {
+            try
+            {
+                string last = model.TextFindAll.Last();
+
+                foreach (var intem in model.TextFindAll)
+                {
+                    if (model.FirstLoop)
+                    {
+                        txtConcatATo.Text = 'A' + intem + "\r\n";
+                        model.FirstLoop = false;
+                    }
+                    else
+                    {
+                        txtConcatATo.Text += 'A' + intem + "\r\n";
+                    }
+
+                    if (last.Equals(intem))
+                    {
+                        txtConcatATo.Text += 'A' + intem;
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                string msg = "concut";
+                MessageBox.Show("Check input text in format " + msg + " or null\nHelp: Lock Example!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void FetchData2AddParameter(SplitModel model)
         {
             try
@@ -405,5 +436,22 @@ namespace WFA_TextControl
         }
 
         #endregion
+
+        private void GenerateConcat_Click(object sender, EventArgs e)
+        {
+            var da = new baseDA();
+
+            da.DTO.Model.FirstLoop = true;
+            da.DTO.Model.StringText = txtConcatAFrom.Text;
+            da.DTO.Model.ExecuteType = ExampleType.ConcutA;
+            da.Setting(da.DTO);
+
+            ConcatAData2Output(da.DTO.Model);
+        }
+
+        private void CopyConcat_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(txtConcatATo.Text);
+        }
     }
 }

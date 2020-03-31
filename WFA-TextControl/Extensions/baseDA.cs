@@ -40,6 +40,8 @@ namespace WFA_TextControl.Extensions
                     return LinkReport(dto);
                 case ExampleType.Concut:
                     return Concut(dto);
+                case ExampleType.ConcutA:
+                    return ConcutA(dto);
             }
 
             return dto;
@@ -90,6 +92,13 @@ namespace WFA_TextControl.Extensions
                 .Replace("]", "")
                 .Replace("\t", "")
                 .Split(dto.Model.spearator, StringSplitOptions.RemoveEmptyEntries);
+            return dto;
+        }
+        private baseDTO ConcutA(baseDTO dto)
+        {
+            dto.Model.FirstLoop = true;
+            dto.Model.TextArea = dto.Model.StringText.Replace("\r\n", " ").Split(null);
+            dto.Model.TextFindAll = dto.Model.TextArea;
             return dto;
         }
         private baseDTO LinkReport(baseDTO dto)
